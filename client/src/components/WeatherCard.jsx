@@ -1,47 +1,42 @@
 import moment from "moment";
+import { Card } from "semantic-ui-react";
 
 const WeatherCard = (props) => {
   return (
-    <div className="weather-card">
-      <div className="result">
-        <p>
-          <span className="date-time">{moment().format("LLLL")}</span>
-          </p>
-          <img
-            src={`http://openweathermap.org/img/wn/${props.data.data.weather[0].icon}@4x.png`}
-            alt={"Icon from Open Weather Api"}
-          />
-        <p className="keys">
-          City:{" "}
-          <span className="data">
+    <Card className="weather-card">
+      <Card.Content className="result">
+        <Card.Header>
+          <span className="cityname">
             {props.data.data.name}, {props.data.data.sys.country}
           </span>
-        </p>
-        <p className="keys">
-          Description:{" "}
+        </Card.Header>
+
+        <Card.Meta>{moment().format("LLLL")}</Card.Meta>
+        <img
+          src={`http://openweathermap.org/img/wn/${props.data.data.weather[0].icon}@4x.png`}
+          alt={"Icon from Open Weather Api"}
+        />
+        <Card.Description>
+          Description:
           <span className="data">{props.data.data.weather[0].description}</span>
-        </p>
-        <p className="keys">
-          Temperature:{" "}
+          <br />
+          Temperature:
           <span className="data">
             {props.data.data.main.temp} <sup>o</sup>F
           </span>
-        </p>
-        <p className="keys">
-          Feels Like:{" "}
+          <br />
+          Feels Like:
           <span className="data">
             {props.data.data.main.feels_like} <sup>o</sup>F
           </span>
-        </p>
-        <p className="keys">
-          Humidity:{" "}
+          <br />
+          Humidity:
           <span className="data">{props.data.data.main.humidity}%</span>
-        </p>
-        <p className="keys">
+          <br />
           Wind: <span className="data">{props.data.data.wind.speed} mph</span>
-        </p>
-      </div>
-    </div>
+        </Card.Description>
+      </Card.Content>
+    </Card>
   );
 };
 

@@ -29,16 +29,13 @@ input[type=submit] {
  /* .App-header{
    color:blueviolet
  } */
-.data{
+.cityname {
   font-size: 20px;
   color: #2BA98F;
   font-weight: 400;
 }
-
-.date-time {
-  color: #DE7A17;
-  font-size: 24px;
-  font-weight: bold;
+.data {
+  color: #2BA98F;
 }
 
 #weather-app-pic {
@@ -47,14 +44,6 @@ input[type=submit] {
   margin-bottom: 10px;
 }
 
-p{
-  font-size: 20px;
-}
-
-.keys {
-  font-weight: bold;
-}
-
-input {
-  font-family: 'Quicksand', sans-serif;
+Card.Description {
+  font-size: 18px;
 }
