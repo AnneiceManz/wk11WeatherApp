@@ -3,7 +3,7 @@ import { Card } from "semantic-ui-react";
 
 const WeatherCard = (props) => {
   return (
-    <Card className="weather-card">
+    <Card raised color="teal" className="weather-card">
       <Card.Content className="result">
         <Card.Header>
           <span className="cityname">

@@ -47,3 +47,7 @@ input[type=submit] {
 Card.Description {
   font-size: 18px;
 }
+
+.cardgroup {
+  padding-top: 20px;
+}

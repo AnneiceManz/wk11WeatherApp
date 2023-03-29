@@ -15,7 +15,7 @@ const WeatherForm = (props) => {
   };
 
   return (
-    <Card className="weather">
+    <Card raised color="teal" className="weather">
       <Card.Content>
         <Form onSubmit={handleSubmit}>
           <Form.Input
