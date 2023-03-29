@@ -15,6 +15,27 @@ app.get('/', (req, res) => {
     res.json({ message: 'Hola, from My template ExpressJS with React-Vite' });
 });
 
+// creates an endpoint for the route /api/weather
+app.get('/api/weather/', (req, res) => {
+    const city =req.query.cityName;
+    const apiKey = process.env.API_KEY;
+    const params = new URLSearchParams ({
+      q: city,
+      appid: apiKey,
+      units: "Imperial",
+    });
+    const url = `https://api.openweathermap.org/data/2.5/weather?${params}`;
+    // console.log(url);
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        res.send({data});
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
 // create the get request for students in the endpoint '/api/students'
 app.get('/api/students', async (req, res) => {
     try {
