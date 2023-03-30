@@ -1,10 +1,11 @@
-import './App.css';
+import "./App.css";
 import { useState } from "react";
-import { Card } from 'semantic-ui-react'
-import WeatherForm from './components/weatherForm';
-import WeatherCard from './components/weatherCard';
-import WeatherHeader from './components/Header';
-import UserForm from './components/Form'
+import { Card } from "semantic-ui-react";
+import WeatherForm from "./components/weatherForm";
+import WeatherCard from "./components/weatherCard";
+import WeatherHeader from "./components/Header";
+import UserForm from "./components/Form";
+import RecentSearches from "./components/RecentSearches";
 
 function App() {
   const [city, setCity] = useState("");
@@ -20,22 +21,21 @@ function App() {
         setCity(city);
         setResult(result);
       });
-  }
+  };
 
- const handleSubmit = (city) =>{
-  // e.preventDefault();
-  loadCity(city);
- }
-
+  const handleSubmit = (city) => {
+    // e.preventDefault();
+    loadCity(city);
+  };
 
   return (
     <div className="App">
       <WeatherHeader />
-      <Card.Group itemsPerRow={2} className='cardgroup'>
-
-<UserForm />
-      <WeatherForm city={city} handleSubmit={handleSubmit}/>
-      {!result ? null : <WeatherCard data={result} /> }
+      <Card.Group itemsPerRow={2} className="cardgroup">
+        <UserForm />
+        <WeatherForm city={city} handleSubmit={handleSubmit} />
+        {!result ? null : <WeatherCard data={result} />}
+        <RecentSearches />
       </Card.Group>
     </div>
   );

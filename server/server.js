@@ -35,6 +35,15 @@ app.get("/api/weather/", (req, res) => {
     });
 });
 
+app.get("/api/history", async (req, res) => {
+  try {
+    const { rows: history } = await db.query("SELECT * FROM history");
+    res.send(history);
+  } catch (e) {
+    return res.status(400).json({ e });
+  }
+});
+
 // create the get request for users in the endpoint '/api/weather_user'
 app.get("/api/weather_user", async (req, res) => {
   try {
